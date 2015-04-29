@@ -1,6 +1,7 @@
 public class SortedLinkedList
 {
   private Node head;
+  private int thelength = 0;
   
   /**
    * Create an empty list.
@@ -32,9 +33,11 @@ public class SortedLinkedList
    * array, the index of the first entry is zero.  If the index is invalid,
    * this method will return null.
    */
-  public String getName(int index)
-  {
-    
+  public String getName(int index) {
+   if (head == null) 
+   return null;
+   else 
+    return head.getName();
   }
   
   /**
@@ -42,9 +45,11 @@ public class SortedLinkedList
    * an array, the index of the first entry is zero.  If the index is invalid,
    * this method will return -1.
    */
-  public int getQuantity(int index)
-  {
-    
+  public int getQuantity(int index) {
+    if ( head == null)
+      return -1;
+    else 
+      return head.getQuantity();
   }
   
   /**
@@ -52,7 +57,7 @@ public class SortedLinkedList
    */
   public int length()
   {
-    
+    return thelength;
   }
   
   /**
@@ -61,7 +66,7 @@ public class SortedLinkedList
    */
   public boolean isMember(String name)
   {
-    
+    return false;
   }
   
   /**
@@ -69,7 +74,14 @@ public class SortedLinkedList
    * order.  This order is specified by the quantity from low to high.
    */
   public void insert(String name, int quantity)
-  {
+  { Node n;
+    n = new Node(name, quantity);
+    
+    n.setNext(head);
+    
+    head = n; 
+    
+    thelength++;
     
   }  
 }
